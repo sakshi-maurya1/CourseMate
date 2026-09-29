@@ -169,6 +169,13 @@ static/     single-page frontend
 tests/      unit tests (chunking, RRF)
 Dockerfile  builds the index into the image for fast startup
 ```
+## Screenshots
+<img width="722" height="457" alt="image" src="https://github.com/user-attachments/assets/2f7094ed-ee1c-4efb-b88d-763d0549110a" />
+<img width="635" height="351" alt="image" src="https://github.com/user-attachments/assets/9c1b7605-86a7-4406-900b-d0c3406603a0" />
+<img width="681" height="422" alt="image" src="https://github.com/user-attachments/assets/0564ea96-d649-4210-b731-4b3d3ee2bbb7" />
+<img width="500" height="785" alt="image" src="https://github.com/user-attachments/assets/25a92795-6e28-4e69-8715-87b0113f36cd" />
+<img width="507" height="186" alt="image" src="https://github.com/user-attachments/assets/70b32580-da8a-4335-a4bc-4bdd7a4280d8" />
+
 
 ## Limitations
 

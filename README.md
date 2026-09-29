@@ -30,7 +30,7 @@ python -m eval.run_eval eval/golden.json
 Paste the table below. Tune `REFUSE_THRESHOLD` in `.env` using the unanswerable set.
 
 ## Results
-(paste table here)
+(in `golden.json` file )
 
 ## Next steps
 See PRODUCTION.md.
@@ -90,34 +90,35 @@ Golden set: **N answerable + M unanswerable** questions generated from the sourc
 
 ### Retrieval ablation (`python -m eval.run_eval`)
 
-| Config | Recall@5 | MRR | p95 retrieval ms |
+| Config | Recall@5 | MRR | p95 retrieval ms | 
 |---|---|---|---|
-| Dense only | X | X | X |
-| + BM25 hybrid (RRF) | X | X | X |
-| + Cross-encoder rerank | X | X | X |
+| dense | 0.91 | 0.77 | 65 | 
+| hybrid | 0.91 | 0.75 | 52 | 
+| rerank | 0.88 | 0.66 | 750 |
 
 ### Generation quality (`python -m eval.run_gen_eval`)
 
-| Metric | Value | Gate |
+| Metric | Value | Gate | 
 |---|---|---|
-| Recall@5 | X | ≥ 0.80 |
-| Faithfulness (LLM judge) | X | ≥ 0.85 |
-| Answer relevance | X | n/a |
-| Answers with a citation | X | ≥ 0.90 |
-| Citations pointing to retrieved pages | X | ≥ 0.90 |
-| Refusal accuracy (unanswerable) | X | ≥ 0.80 |
-| False refusal rate (answerable) | X | ≤ 0.15 |
-| p95 end-to-end latency | X ms | n/a |
-| Cost per 100 queries | $X | n/a |
+| recall@5 | 0.94 | >= 0.8 | 
+| faithfulness | 1.00 | >= 0.85 | 
+| answer_relevance | 0.99 | n/a | 
+| cited_rate | 1.00 | >= 0.9 | 
+| citation_valid | 0.97 | >= 0.9 | 
+| refusal_acc | 1.00 | >= 0.8 | 
+| false_refusal | 0.00 | <= 0.15 | 
+| p95 latency (ms) | 39627 | n/a | 
+| cost / 100 queries (USD) | 0.1343 | n/a | 
 
-`run_gen_eval` exits non-zero when a gate fails, so it can be used as a release check.
 
 > Faithfulness and relevance use an LLM as judge on a small set, so treat them as approximate.
 
 ### What I learned
 
-- _(1-3 findings from your own runs, e.g. "hybrid search raised recall@5 from X to Y because physics questions contain exact terms like 'impulse'")_
-- _(e.g. "the refusal threshold trades false refusals against hallucinations; I tuned it on the unanswerable set")_
+- Hybrid search did not beat dense-only on my golden set. Recall@5 was 0.91 for both, and MRR dipped slightly (0.77 to 0.75). My questions were generated from the passages, so they share a lot of vocabulary with them and the embedding model already does well. I'd expect BM25 to matter more for symbol-heavy or exact-term queries, and I'd need a harder test set to show that.
+- The reranker is an accuracy versus latency trade-off, and the model choice mattered a lot. With bge-reranker-base on CPU, retrieval p95 was about 34 s, and even after truncating inputs and reranking fewer candidates it was about 10 s. Switching to a much smaller MiniLM cross-encoder brought it to about 0.75 s, but recall@5 fell from 0.94 to 0.88 and MRR from 0.70 to 0.66, so I gave up some accuracy for speed. I'd use the larger model on a GPU or a hosted reranking API.
+- The refusal threshold has to be tuned per reranker. With the first setup, the score threshold blocked 0 of 6 unanswerable questions and the prompt was doing the refusing. After I checked the score distributions, answerable questions scored at least 0.76 and unanswerable ones scored 0.00, so a threshold of 0.3 blocks all 6 off-topic questions before the LLM is called, with no false refusals on the answerable set. The test is easy because the unanswerable questions were all far from the subject, so I'd add harder near-topic cases.
+- My evaluation has limits. The golden set is small and derived from the same text it tests, and the LLM judge is noisy, so I treat the metrics as directional. Perfect-looking faithfulness scores made me more suspicious of the test, not less.
 
 ## Run locally
 
@@ -178,11 +179,12 @@ Dockerfile  builds the index into the image for fast startup
 
 
 ## Limitations
-
-- Equations in PDFs can extract as garbled text; formula questions are the weakest area.
-- Answers come from text only; diagram content is limited to OCR'd labels.
-- The cache and feedback log are in-process/local files, so they reset on restart and do not scale across instances.
-- Faithfulness is judged by an LLM on a small golden set.
+- Equations in PDFs often extract badly.
+- Diagrams are only understood through their text labels.
+- The test set is small, and an AI judging AI is a bit noisy.
+- The corpus is fixed, so I could measure quality. Next step is user uploads with separate indexes per user.
+- The cache and feedback reset on restart; production needs Redis and a database.
+- I couldn't host it on Hugging Face's free tier, so I demo it locally. The Dockerfile works on any container host.
 
 ## Next steps
 

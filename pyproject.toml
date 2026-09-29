@@ -1,0 +1,34 @@
+[project]
+name = "coursemate"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "pymupdf",
+    "sentence-transformers",
+    "chromadb",
+    "rank_bm25",
+    "fastapi",
+    "uvicorn[standard]",
+    "python-dotenv",
+    "anthropic",
+    "openai",
+    "opencv-python-headless",
+    "numpy",
+    "rapidocr-onnxruntime>=1.4.4",
+    "groq>=1.7.0",
+    "torch>=2.14.0",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

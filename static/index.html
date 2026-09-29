@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CourseMate</title>
+<style>
+  :root { --bg:#f7f7f9; --card:#fff; --text:#1c1c1e; --muted:#6b6b76; --accent:#3b5bdb; --border:#e3e3e8; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111114; --card:#1b1b20; --text:#ececf0; --muted:#9a9aa6; --accent:#7c93ff; --border:#2c2c34; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, sans-serif; background:var(--bg); color:var(--text); }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 120px; }
+  h1 { font-size: 22px; margin: 0 0 4px; } .sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+  .msg { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 12px 0; line-height: 1.55; }
+  .msg.user { background: var(--accent); color:#fff; border:none; margin-left: 15%; }
+  .cite { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); border-radius: 6px; padding: 1px 6px; font-size: 12px; white-space: nowrap; }
+  .meta { color: var(--muted); font-size: 12px; margin-top: 10px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .meta button { background:none; border:1px solid var(--border); border-radius:8px; cursor:pointer; padding:2px 8px; font-size:14px; }
+  .meta button:disabled { opacity:.4; cursor:default; }
+  details { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .bar { position: fixed; bottom:0; left:0; right:0; background: var(--bg); border-top:1px solid var(--border); padding: 12px 16px; }
+  .bar div { max-width: 760px; margin: 0 auto; display:flex; gap:8px; }
+  input, select, button.send { font: inherit; padding: 10px 12px; border-radius: 10px; border:1px solid var(--border); background: var(--card); color: var(--text); }
+  input { flex:1; } button.send { background: var(--accent); color:#fff; border:none; cursor:pointer; } button.send:disabled { opacity:.5; }
+  .chips { display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 8px; }
+  .chips button { background: var(--card); border:1px solid var(--border); color: var(--text); border-radius: 999px; padding: 6px 12px; cursor:pointer; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>CourseMate</h1>
+  <p class="sub">Ask questions about the course material. Answers are cited and limited to the uploaded chapters.</p>
+  <div class="chips" id="chips"></div>
+  <div id="chat"></div>
+</main>
+<div class="bar"><div>
+  <select id="source"><option value="">All chapters</option></select>
+  <input id="q" placeholder="Ask a question…" maxlength="500" autofocus>
+  <button class="send" id="send">Ask</button>
+</div></div>
+<script>
+const API_BASE = 'http://127.0.0.1:8000';
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = s => esc(s)
+  .replace(/\[([^\]\[,]+,\s*p\.?\s*\d+[^\]]*)\]/g, '<span class="cite">$1</span>')
+  .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
+
+function add(cls, html) { const d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; $('chat').appendChild(d); d.scrollIntoView({block:'end'}); return d; }
+
+async function ask(question) {
+  if (!question.trim()) return;
+  $('q').value = ''; $('send').disabled = true;
+  add('user', esc(question));
+  const box = add('bot', 'Searching the course material…');
+  try {
+    const res = await fetch(`${API_BASE}/ask`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    question,
+    source: $('source').value || null
+  })
+});
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || 'Request failed');
+    const l = data.latency_ms;
+    const cites = data.citations.map(c => `${esc(c.source)}, p.${c.page}` + (c.score != null ? ` (${c.score.toFixed(2)})` : '')).join('<br>');
+    box.innerHTML = fmt(data.answer) +
+      `<details><summary>Sources retrieved</summary>${cites}</details>` +
+      `<div class="meta"><span>${l.retrieval + l.generation} ms${data.cached ? ' (cached)' : ''}</span>
+       <button data-up="1">👍</button><button data-up="0">👎</button></div>`;
+    box.querySelectorAll('button').forEach(b => b.onclick = async () => {
+      box.querySelectorAll('button').forEach(x => x.disabled = true);
+      await fetch(`${API_BASE}/feedback`, { method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ question, answer: data.answer, thumbs_up: b.dataset.up === '1' }) });
+    });
+  } catch (e) { box.textContent = 'Error: ' + e.message; }
+  $('send').disabled = false; $('q').focus();
+}
+
+$('send').onclick = () => ask($('q').value);
+$('q').onkeydown = e => { if (e.key === 'Enter') ask($('q').value); };
+fetch(`${API_BASE}/sources`)
+  .then(r => {
+    if (!r.ok) throw new Error(`Sources request failed: ${r.status}`);
+    return r.json();
+  })
+  .then(list => list.forEach(s => {
+    const o = document.createElement('option');
+    o.value = o.textContent = s;
+    $('source').appendChild(o);
+  }))
+  .catch(e => console.error('Could not load sources:', e));
+['State Newton\'s second law', 'What is the difference between speed and velocity?', 'Who won the 2018 World Cup?']
+  .forEach(t => { const b = document.createElement('button'); b.textContent = t; b.onclick = () => ask(t); $('chips').appendChild(b); });
+</script>
+</body>
+</html>

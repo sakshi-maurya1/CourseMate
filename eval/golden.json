@@ -1,0 +1,306 @@
+[
+  {
+    "question": "A cell\u2019s positive electrode is at a potential V\u207a above the adjacent electrolyte, while its negative electrode is at a potential \u2013V\u207b (with V\u207b\u202f\u2265\u202f0) below the adjacent electrolyte. What is the electromotive force of the cell in terms of V\u207a and V\u207b?",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      14
+    ],
+    "passage": "Physics 94 Fig. 3.12. They are immersed in an electrolytic solution. Dipped in the solution, the electrodes exchange charges with the electrolyte. The positive electrode has a potential difference V+ (V+ > 0) between itself and the electrolyte solution immediately adjacent to it marked A in the figu"
+  },
+  {
+    "question": "A pair of electrochemical cells are connected in series. The first cell has an emf of 1.2\u202fV and an internal resistance of 0.5\u202f\u03a9, while the second has an emf of 1.8\u202fV and an internal resistance of 0.3\u202f\u03a9. If this series combination is replaced by a single equivalent cell, what are the emf and the internal resistance of the equivalent cell?",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      15
+    ],
+    "passage": "Current Electricity 95 I R = e \u2013 I r Or, I R r = + \u03b5 (3.40) The maximum current that can be drawn from a cell is for R = 0 and it is Imax = e/r. However, in most cells the maximum allowed current is much lower than this to prevent permanent damage to the cell. 3.11 3.11 3.11 3.11 3.11 CELLS ELLS ELL"
+  },
+  {
+    "question": "Why does a solid conductor exhibit no net electric current when no external electric field is applied, even though its electrons are constantly moving due to thermal energy?",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      2
+    ],
+    "passage": "and the positively charged nuclei are bound to each other and are thus not free to move. Bulk matter is made up of many molecules, a gram of water, for example, contains approximately 1022 molecules. These molecules are so closely packed that the electrons are no longer attached to individual nuclei"
+  },
+  {
+    "question": "State the approximate linear formula that relates a metal\u2019s resistivity to temperature over a modest temperature interval, and specify both the sign and the dimensional units of the temperature\u2011coefficient appearing in that expression.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      10
+    ],
+    "passage": "Physics 90 Metals have low resistivities in the range of 10\u20138 Wm to 10\u20136 Wm. At the other end are insulators like ceramic, rubber and plastics having resistivities 1018 times greater than metals or more. In between the two are the semiconductors. These, however, have resistivities characteristically"
+  },
+  {
+    "question": "Applying Kirchhoff\u2019s rules as outlined, give (i) the equation that relates the three currents at junction\u202fa, (ii) the relationship between the current entering and leaving point\u202fh, and (iii) the two algebraic equations obtained from the loop rule for the loops \u201cahdcba\u201d and \u201cahdefga\u201d.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      18
+    ],
+    "passage": "Physics 98 EXAMPLE 3.5 This applies equally well if instead of a junction of several lines, we consider a point in a line. The proof of this rule follows from the fact that when currents are steady, there is no accumulation of charges at any junction or at any point in a line. Thus, the total curren"
+  },
+  {
+    "question": "According to the labeling conventions described, if the current through a power source is taken to travel from its positive terminal toward its negative terminal, which formula correctly expresses the voltage difference between the terminals in terms of the source\u2019s emf (e), the internal resistance (r), and the current (I)?",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      17
+    ],
+    "passage": "flows along the resistor in the direction indicated. If ultimately I is determined to be positive, the actual current in the resistor is in the direction of the arrow. If I turns out to be negative, the current actually flows in a direction opposite to the arrow. Similarly, for each source (i.e., ce"
+  },
+  {
+    "question": "A cell with electromotive force\u202fe and internal resistance\u202fr is connected to an external resistor\u202fR, causing a current\u202fI to flow. Write the formula for the potential difference between the cell\u2019s terminals in terms of\u202fe,\u202fI, and\u202fr, and explain how this terminal voltage is related to the voltage across the external resistor according to Ohm\u2019s law.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      14
+    ],
+    "passage": "the situation when R is infinite so that I = V/R = 0, where V is the potential difference between P and N. Now, V = Potential difference between P and A + Potential difference between A and B + Potential difference between B and N = e (3.37) Thus, emf e is the potential difference between the positi"
+  },
+  {
+    "question": "A nichrome heating element has a temperature\u2011coefficient of resistance of \\(1.70 \\times 10^{-4}\\ \\text{\u00b0C}^{-1}\\). Its resistance at room temperature (27\u202f\u00b0C) is 75.3\u202f\u03a9. When connected to a 230\u202fV supply, the element reaches a steady current of 2.68\u202fA, corresponding to a resistance of 85.8\u202f\u03a9 at the operating temperature. Determine the steady\u2011state temperature of the element.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      11
+    ],
+    "passage": "of nichrome averaged over the temperature range involved, is 1.70 \u00d7 10\u20134 \u00b0C\u20131. Solution When the current through the element is very small, heating effects can be ignored and the temperature T1 of the element is the same as room temperature. When the toaster is connected to the supply, its initial c"
+  },
+  {
+    "question": "Three identical cells each have an emf of 2.0\u202fV and an internal resistance of 0.5\u202f\u03a9, and they are connected in parallel. Using the formulas for the equivalent emf and equivalent internal resistance of parallel\u2011connected cells, calculate the emf and the internal resistance of the single equivalent cell.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      17
+    ],
+    "passage": "Current Electricity 97 1 2 1 1 1 eq r r r = + (3.56) 1 2 1 2 eq eq r r r \u03b5 \u03b5 \u03b5 = + (3.57) In Fig. (3.14), we had joined the positive terminals together and similarly the two negative ones, so that the currents I1, I2 flow out of positive terminals. If the negative terminal of the second is connected"
+  },
+  {
+    "question": "Explain why transmitting electrical power at a higher voltage reduces the energy wasted as heat in the transmission lines, using the relationship between power loss, current, and line resistance given in the passage.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      13
+    ],
+    "passage": "Current Electricity 93 Using Ohm\u2019s law V = IR, we get P = I 2 R = V 2/R (3.33) as the power loss (\u201cohmic loss\u201d) in a conductor of resistance R carrying a current I. It is this power which heats up, for example, the coil of an electric bulb to incandescence, radiating out heat and light. Where does t"
+  },
+  {
+    "question": "Why does electric current become established almost immediately after a circuit is closed, even though the average drift speed of the free electrons in the conductor is only a few millimetres per second?",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      8
+    ],
+    "passage": "Physics 88 EXAMPLE 3.2 Example 3.2 (a) In Example 3.1, the electron drift speed is estimated to be only a few mm s\u20131 for currents in the range of a few amperes? How then is current established almost the instant a circuit is closed? (b) The electron drift arises due to the force experienced by elect"
+  },
+  {
+    "question": "State the three distinct conditions under which Ohm\u2019s law fails, and give an example of a material or device that exhibits each type of failure.",
+    "answerable": true,
+    "source": "leph103",
+    "pages": [
+      23
+    ],
+    "passage": "and the drift velocity vd (not acceleration) can be understood, if we assume that the electrons suffer collisions with ions in the metal, which deflect them randomly. If such collisions occur on an average at a time interval t, vd = at = eEt/m where a is the acceleration of the electron. This gives "
+  },
+  {
+    "question": "Write the formula that gives the magnitude of the axial magnetic field at a distant point located a distance\u202fr\u202ffrom the center of a finite solenoid (or an equivalent bar magnet) in terms of the magnetic moment\u202fm\u202fof the solenoid and the permeability of free space.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      4
+    ],
+    "passage": "139 Magnetism and Matter The resemblance of magnetic field lines for a bar magnet and a solenoid suggest that a bar magnet may be thought of as a large number of circulating currents in analogy with a solenoid. Cutting a bar magnet in half is like cutting a solenoid. We get two smaller solenoids wit"
+  },
+  {
+    "question": "Why does the magnetic flux through any closed surface always sum to zero, whereas an electric flux can be non\u2011zero for a closed surface that encloses charge, according to the description of Gauss\u2019s law for magnetism?",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      7
+    ],
+    "passage": "Physics 142 KARL FRIEDRICH GAUSS (1777 \u2013 1855) Karl Friedrich Gauss (1777 \u2013 1855) He was a child prodigy and was gifted in mathematics, physics, engineering, astronomy and even land surveying. The properties of numbers fascinated him, and in his work he anticipated major mathematical development of "
+  },
+  {
+    "question": "State the magnitude of the uniform horizontal magnetic field applied to the solenoid and the angle it makes with the solenoid\u2019s axis.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      18
+    ],
+    "passage": "153 Magnetism and Matter (a) What is the magnetic moment associated with the solenoid? (b) What is the force and torque on the solenoid if a uniform horizontal magnetic field of 7.5 \u00d7 10\u20132 T is set up at an angle of 30\u00b0 with the axis of the solenoid? 5.7 A short bar magnet has a magnetic moment of 0"
+  },
+  {
+    "question": "A bar magnet possessing a magnetic dipole moment **m** is situated in a uniform magnetic field **B**. State (i) the magnitude and direction of the net force on the magnet, (ii) the expression for the torque it experiences, and (iii) its potential energy, taking the zero of energy to correspond to the orientation where **m** is perpendicular to **B**.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      15
+    ],
+    "passage": "Physics 150 magnetic poles repel and unlike ones attract; and cutting a bar magnet in two leads to two smaller magnets. Magnetic poles cannot be isolated. 2. When a bar magnet of dipole moment m is placed in a uniform magnetic field B, (a) the force on it is zero, (b) the torque on it is m \u00d7 B, (c) "
+  },
+  {
+    "question": "Explain how the density of magnetic field lines indicates the field\u2019s strength, how a small compass needle can be used to determine the field\u2019s direction at various points, and why magnetic field lines are never allowed to cross one another.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      3
+    ],
+    "passage": "Physics 138 (ii) The tangent to the field line at a given point represents the direction of the net magnetic field B at that point. (iii) The larger the number of field lines crossing per unit area, the stronger is the magnitude of the magnetic field B. In Fig. 5.2(a), B is larger around region ii t"
+  },
+  {
+    "question": "Describe how magnetic field lines interact with a diamagnetic material placed in an external magnetic field, and explain the direction in which the material will move when the field is non\u2011uniform.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      12
+    ],
+    "passage": "0 \u2264 \u00b5r < 1 1< \u00b5r < 1+ \u03b5 \u00b5r >> 1 \u00b5 < \u00b50 \u00b5 > \u00b50 \u00b5 >> \u00b50 5.5.1 Diamagnetism Diamagnetic substances are those which have tendency to move from stronger to the weaker part of the external magnetic field. In other words, unlike the way a magnet attracts metals like iron, it would repel a diamagnetic subst"
+  },
+  {
+    "question": "A magnetic dipole\u202fP creates a magnetic field at the location of an identical dipole\u202fQ. According to the dipole analogy, specify the orientation of Q\u2019s magnetic moment relative to the field produced by\u202fP that (i) yields stable equilibrium, (ii) yields unstable equilibrium, and (iii) gives the configuration with the lowest potential energy.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      6
+    ],
+    "passage": "141 Magnetism and Matter Equation (5.5) is just Eq. (5.1) in the vector form. Table 5.1 summarises the analogy between electric and magnetic dipoles. Electrostatics Magnetism 1/\u03b50 \u00b50 Dipole moment p m Equatorial Field for a short dipole \u2013p/4\u03c0\u03b50r 3 \u2013 \u00b50 m / 4\u03c0 r 3 Axial Field for a short dipole 2p/4\u03c0"
+  },
+  {
+    "question": "A solenoid contains a magnetic core whose relative permeability is 400. The windings are insulated from the core and carry a current of 2\u202fA. The coil has 1000 turns per metre of length. Using the relationships between magnetic field intensity (H), magnetization (M), magnetic flux density (B), and the magnetic permeability of free space (\u03bc\u2080\u202f=\u202f4\u03c0\u202f\u00d7\u202f10\u207b\u2077\u202fT\u00b7m/A), determine:  \n\n(a) the magnetic field intensity H,  \n(b) the magnetization M of the core,  \n(c) the magnetic flux density B within the core, and  \n(d) the magnetising current Im associated with the core.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      11
+    ],
+    "passage": "\u00b5 \u03c7 = + B H (5.14) = m0 mr H = m H (5.15) where mr= 1 + c, is a dimensionless quantity called the relative magnetic permeability of the substance. It is the analog of the dielectric constant in electrostatics. The magnetic permeability of the substance is m and it has the same dimensions and units a"
+  },
+  {
+    "question": "Which magnetic quantity shares the same dimensional formula as magnetic field intensity H, and what is its SI unit?",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      16
+    ],
+    "passage": "Vector [MT\u20132 A\u20131] T (tesla) 104 G (gauss) = 1 T Magnetic induction, Magnetic flux density Magnetic moment m Vector [L\u20132 A] A m2 Magnetic flux \u03c6B Scalar [ML2T\u20132 A\u20131] W (weber) W = T m2 Magnetisation M Vector [L\u20131 A] A m\u20131 Magnetic moment Volume Magnetic intensity H Vector [L\u20131 A] A m\u20131 B = \u00b50 (H + M)"
+  },
+  {
+    "question": "State the magnetic susceptibility, relative permeability, and absolute permeability of a perfect diamagnet such as a superconductor. What happens to the external magnetic field inside it?",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      17
+    ],
+    "passage": "Physics 152 5. There exists a perfect diamagnet, namely, a superconductor. This is a metal at very low temperatures. In this case \u03c7 = \u20131, \u00b5r = 0, \u00b5 = 0. The external magnetic field is totally expelled. Interestingly, this material is also a perfect conductor. However, there exists no classical theor"
+  },
+  {
+    "question": "A solenoid consisting of 800 tightly wound turns with a cross\u2011sectional area of \\(2.5 \\times 10^{-4}\\,\\text{m}^2\\) carries a current of \\(3.0\\ \\text{A}\\). Treating the solenoid as an equivalent bar magnet, determine its magnetic dipole moment.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      17
+    ],
+    "passage": "wound solenoid of 800 turns and area of cross section 2.5 \u00d7 10\u20134 m2 carries a current of 3.0 A. Explain the sense in which the solenoid acts like a bar magnet. What is its associated magnetic moment? 5.4 If the solenoid in Exercise 5.5 is free to turn about the vertical direction and a uniform horiz"
+  },
+  {
+    "question": "According to the information provided, what are the typical numerical values of magnetic susceptibility for diamagnetic and paramagnetic substances, and how does a small change in this quantity determine whether a material exhibits diamagnetic or paramagnetic behavior?",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      16
+    ],
+    "passage": "151 Magnetism and Matter POINTS TO PONDER 1. A satisfactory understanding of magnetic phenomenon in terms of moving charges/currents was arrived at after 1800 AD. But technological exploitation of the directional properties of magnets predates this scientific understanding by two thousand years. Thu"
+  },
+  {
+    "question": "Why do magnetic field lines form continuous closed loops, unlike electrostatic field lines?",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      3
+    ]
+  },
+  {
+    "question": "Derive the expression for the torque experienced by a magnetic dipole in a uniform magnetic field.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      4
+    ]
+  },
+  {
+    "question": "Explain why a bar magnet and a current-carrying solenoid produce similar magnetic fields.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      4
+    ]
+  },
+  {
+    "question": "State Gauss's law for magnetism and explain its connection with the non-existence of isolated magnetic monopoles.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      8
+    ]
+  },
+  {
+    "question": "Define magnetisation and magnetic intensity. State their SI units and dimensional formulas.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      11
+    ]
+  },
+  {
+    "question": "Differentiate between diamagnetic, paramagnetic, and ferromagnetic materials using magnetic susceptibility and relative permeability.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      12
+    ]
+  },
+  {
+    "question": "Why does a diamagnetic substance move from a stronger magnetic field region toward a weaker field region?",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      12
+    ]
+  },
+  {
+    "question": "Explain why the magnetic susceptibility of a diamagnetic material is negative.",
+    "answerable": true,
+    "source": "leph105",
+    "pages": [
+      12
+    ]
+  },
+  {
+    "question": "What is the capital of Australia?",
+    "answerable": false
+  },
+  {
+    "question": "Explain how CRISPR gene editing works.",
+    "answerable": false
+  },
+  {
+    "question": "What is the time complexity of quicksort?",
+    "answerable": false
+  },
+  {
+    "question": "Who wrote Hamlet?",
+    "answerable": false
+  },
+  {
+    "question": "How do vaccines train the immune system?",
+    "answerable": false
+  },
+  {
+    "question": "Derive the Schwarzschild radius of a black hole.",
+    "answerable": false
+  }
+]

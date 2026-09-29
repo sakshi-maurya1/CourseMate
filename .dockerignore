@@ -1,0 +1,7 @@
+.venv
+.git
+.env
+__pycache__
+data/chroma
+data/chunks.jsonl
+data/feedback.jsonl

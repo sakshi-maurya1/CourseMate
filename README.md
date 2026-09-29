@@ -10,6 +10,8 @@ app_port: 7860
 <<<<<<< HEAD
 Hybrid retrieval (dense + BM25, RRF) -> cross-encoder rerank -> LLM answer with `[source, p.X]` citations and refusal when the material lacks the answer.
 
+## Deployment Link : [CourseMate](https://our-bringing-assistant-highlight.trycloudflare.com/) (temporary)
+
 ## Quickstart
 ```bash
 python -m venv .venv && source .venv/bin/activate

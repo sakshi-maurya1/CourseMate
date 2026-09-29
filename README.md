@@ -1,9 +1,9 @@
----
+<!---
 title: CourseMate
 emoji: 📚
 sdk: docker
 app_port: 7860
----
+--->
 
 # CourseMate: citation-grounded course Q&A (RAG)
 

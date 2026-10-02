@@ -7,7 +7,7 @@ app_port: 7860
 
 # CourseMate: citation-grounded course Q&A (RAG)
 
-<<<<<<< HEAD
+
 Hybrid retrieval (dense + BM25, RRF) -> cross-encoder rerank -> LLM answer with `[source, p.X]` citations and refusal when the material lacks the answer.
 
 ## Deployment Link : [CourseMate](https://larger-drives-prediction-pictures.trycloudflare.com/) (temporary)
@@ -191,4 +191,4 @@ Dockerfile  builds the index into the image for fast startup
 ## Next steps
 
 Redis semantic cache, managed vector DB with native hybrid search (Qdrant), streaming responses, a claim-level citation verifier, query rewriting for follow-ups, Hindi/multilingual support, tracing with Langfuse or OpenTelemetry, and running the eval in CI.
->>>>>>> 118b6ca0ec87974c0e1c1b6c12f815c6e08ea0f9
+

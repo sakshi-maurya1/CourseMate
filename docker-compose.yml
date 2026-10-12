@@ -3,7 +3,7 @@ services:
     build:
       context: .
       # read from .env so the baked-in reranker matches the one the app loads
-      args: { RERANK_MODEL: "${RERANK_MODEL:-BAAI/bge-reranker-base}" }
+      args: { RERANK_MODEL: "${RERANK_MODEL:-cross-encoder/ms-marco-MiniLM-L-6-v2}" }
     ports: ["7860:7860"]
     env_file: .env
     environment:

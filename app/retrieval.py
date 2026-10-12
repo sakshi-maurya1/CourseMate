@@ -1,5 +1,6 @@
 import json, math, re
 import chromadb
+import torch
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from app import config
@@ -50,6 +51,8 @@ class Retriever:
         if mode == "hybrid":
             return [dict(self.by_id[i], score=None) for i in fused[:k]]
         pairs = [(q, self.by_id[i]["text"]) for i in fused]
-        raw = self.reranker.predict(pairs)
+        # raw logits: some models (e.g. bge-reranker) apply a sigmoid by default,
+        # which would be applied twice below and squash every score into 0.5-0.73
+        raw = self.reranker.predict(pairs, activation_fn=torch.nn.Identity())
         ranked = sorted(zip(fused, raw), key=lambda x: x[1], reverse=True)[:k]
         return [dict(self.by_id[i], score=1 / (1 + math.exp(-float(s)))) for i, s in ranked]

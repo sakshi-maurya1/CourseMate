@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 EMBED_MODEL = os.getenv("EMBED_MODEL", "BAAI/bge-small-en-v1.5")
-RERANK_MODEL = os.getenv("RERANK_MODEL", "BAAI/bge-reranker-base")
+RERANK_MODEL = os.getenv("RERANK_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
 QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 CHROMA_DIR = os.getenv("CHROMA_DIR", "data/chroma")
 CHUNKS_PATH = os.getenv("CHUNKS_PATH", "data/chunks.jsonl")

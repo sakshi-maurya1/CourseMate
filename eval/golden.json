@@ -302,5 +302,55 @@
   {
     "question": "Derive the Schwarzschild radius of a black hole.",
     "answerable": false
+  },
+  {
+    "question": "State Faraday's law of electromagnetic induction.",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "State Lenz's law and explain how it is consistent with conservation of energy.",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "How does a transformer change the voltage between its primary and secondary coils?",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "Write the Biot-Savart law for the magnetic field produced by a small current element.",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "How is the capacitance of a parallel plate capacitor calculated?",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "How is a potentiometer used to compare the emfs of two cells?",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "What does the area of the hysteresis loop of a ferromagnetic material represent?",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "What are magnetic declination and inclination at a place on the Earth?",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "What is the resonant frequency of a series LCR circuit?",
+    "answerable": false,
+    "near_topic": true
+  },
+  {
+    "question": "How does a half-wave rectifier convert alternating current into direct current?",
+    "answerable": false,
+    "near_topic": true
   }
 ]

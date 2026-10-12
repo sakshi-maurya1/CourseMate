@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from app import config
 from app.retrieval import Retriever
 from app.generate import answer
 
@@ -248,8 +249,10 @@ def feedback(fb: Feedback, request: Request):
 
     rate_limit(request)
 
+    os.makedirs(os.path.dirname(config.FEEDBACK_PATH) or ".", exist_ok=True)
+
     with open(
-        "data/feedback.jsonl",
+        config.FEEDBACK_PATH,
         "a",
         encoding="utf-8"
     ) as f:

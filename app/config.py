@@ -8,6 +8,7 @@ RERANK_MODEL = os.getenv("RERANK_MODEL", "BAAI/bge-reranker-base")
 QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 CHROMA_DIR = os.getenv("CHROMA_DIR", "data/chroma")
 CHUNKS_PATH = os.getenv("CHUNKS_PATH", "data/chunks.jsonl")
+FEEDBACK_PATH = os.getenv("FEEDBACK_PATH", "data/feedback.jsonl")
 RAW_DIR = "data/raw"
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq")
 LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")

@@ -9,7 +9,11 @@ COPY app ./app
 COPY eval ./eval
 COPY static ./static
 COPY data/raw ./data/raw
-RUN python -m app.ingest && python -c "from sentence_transformers import CrossEncoder; CrossEncoder('BAAI/bge-reranker-base')"
+# Models are baked in and the hub goes offline below, so pick the reranker at build time:
+#   docker build --build-arg RERANK_MODEL=<model> .
+ARG RERANK_MODEL=BAAI/bge-reranker-base
+ENV RERANK_MODEL=${RERANK_MODEL}
+RUN python -m app.ingest && python -c "from sentence_transformers import CrossEncoder; from app import config; CrossEncoder(config.RERANK_MODEL)"
 RUN chmod -R a+rwX /srv/data
 ENV HF_HUB_OFFLINE=1
 EXPOSE 7860

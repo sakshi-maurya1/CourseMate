@@ -1,5 +1,7 @@
 .env
 data/chroma/
 data/chunks.jsonl
+data/feedback.jsonl
+data/feedback/
 __pycache__/
 .venv/

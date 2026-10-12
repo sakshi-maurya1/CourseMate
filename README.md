@@ -114,8 +114,14 @@ Open http://localhost:8000 for the UI or http://localhost:8000/docs for the API.
 Or with Docker (the index is built into the image):
 
 ```bash
-docker build -t coursemate .
-docker run --env-file .env -p 7860:7860 coursemate   # http://localhost:7860
+docker compose up --build       # http://localhost:7860, feedback saved to data/feedback/
+```
+
+Models are downloaded at build time and the container runs offline, so the reranker is fixed when the image is built. Compose reads `RERANK_MODEL` from `.env`. With plain Docker, pass it as a build arg:
+
+```bash
+docker build --build-arg RERANK_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2 -t coursemate .
+docker run --env-file .env -p 7860:7860 coursemate
 ```
 
 ### Evaluate

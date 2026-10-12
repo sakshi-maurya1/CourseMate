@@ -1,6 +1,12 @@
 services:
   api:
-    build: .
-    ports: ["8000:8000"]
+    build:
+      context: .
+      # read from .env so the baked-in reranker matches the one the app loads
+      args: { RERANK_MODEL: "${RERANK_MODEL:-BAAI/bge-reranker-base}" }
+    ports: ["7860:7860"]
     env_file: .env
-    volumes: ["./data:/srv/data"]
+    environment:
+      FEEDBACK_PATH: /srv/feedback/feedback.jsonl
+    # only feedback is persisted; mounting all of ./data would hide the index built into the image
+    volumes: ["./data/feedback:/srv/feedback"]

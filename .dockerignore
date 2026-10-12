@@ -5,3 +5,4 @@ __pycache__
 data/chroma
 data/chunks.jsonl
 data/feedback.jsonl
+data/feedback
